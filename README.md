@@ -1,8 +1,6 @@
-# feijoa-react
+# @featurely/react
 
-> Made with create-react-library
-
-[![NPM](https://img.shields.io/npm/v/feijoa-react.svg)](https://www.npmjs.com/package/feijoa-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@featurely/react.svg)](https://www.npmjs.com/package/@featurely/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
