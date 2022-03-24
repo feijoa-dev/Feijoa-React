@@ -15,12 +15,15 @@ npm install --save feijoa-react
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'feijoa-react'
-import 'feijoa-react/dist/index.css'
+import { Feature } from "@featurely/react";
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return (
+      <Feature flag="my-feature-flag">
+        <MyFeature />
+      <Feature>
+    )
   }
 }
 ```
