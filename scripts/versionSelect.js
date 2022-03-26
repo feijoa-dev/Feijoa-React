@@ -21,9 +21,10 @@ const question = {
   return new Promise((resolve) => {
     inquirer.prompt(question).then(({version}) => {
       console.log("version:", version)
+      resolve(version)
     });
-    setTimeout(() => {
-      resolve()
-    }, 10000)
+    // setTimeout(() => {
+    //   resolve()
+    // }, 10000)
   })
 })();
