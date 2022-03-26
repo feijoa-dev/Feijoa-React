@@ -18,7 +18,8 @@ const question = {
 (async () => {
   // const { version } = await inquirer.prompt(question);
   // await asyncExec(`npm version ${version} --no-git-tag-version`);
-  return new Promise((resolve) => {
+  return new Promise(async (resolve) => {
+    const { version } = await inquirer.prompt(question);
     setTimeout(() => {
       resolve()
     }, 10000)
