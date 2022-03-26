@@ -1,19 +1,9 @@
 import React, { 
   FC, 
-  Fragment,
-  useEffect,
-  useMemo,
-  useState
+  Fragment
 } from "react";
-import createSocketClient from '../../socketClient';
-import { FeatureProps } from './Feature.types';
-import { FEATURE_FLAG } from "./socketEvents";
-
-const {
-  FEATURELY_ENV,
-  REACT_APP_FEATURELY_ENV,
-  NODE_ENV
-} = process.env;
+import { FeatureProps } from '../../types/Feature.types';
+import useFeature from "../../hooks/useFeature";
 
 const Feature: FC<FeatureProps> = ({ 
   flag, 
@@ -21,52 +11,14 @@ const Feature: FC<FeatureProps> = ({
   defaultValue = false
 }) => {
 
-  const [enabled, setEnabled] = useState(defaultValue);
-
-  const environment = useMemo(() => {
-    if ( FEATURELY_ENV !== undefined ) {
-      return FEATURELY_ENV;
-    }
-
-    if ( REACT_APP_FEATURELY_ENV !== undefined ) {
-      return REACT_APP_FEATURELY_ENV;
-    }
-
-    if ( NODE_ENV !== undefined ) {
-      return NODE_ENV;
-    }
-
-    return "development";
-  }, []);
-  
-  useEffect(() => {
-    
-    const socketClient = createSocketClient({
-      flagName: flag,
-      environment: environment
-    }).connect();
-
-    socketClient.on(FEATURE_FLAG.VALUE, (featureEnabled) => {
-      setEnabled(featureEnabled);
-    });
-    
-    socketClient.on(FEATURE_FLAG.UPDATED, (featureEnabled) => {
-      setEnabled(featureEnabled);
-    });
-
-    return () => {
-      socketClient.removeListener(FEATURE_FLAG.VALUE);
-      socketClient.removeListener(FEATURE_FLAG.UPDATED);
-    }
-  }, [])
-
-  if (!enabled) {
-    return null;
-  }
+  const flagEnabled = useFeature({
+    flag,
+    defaultValue
+  });
 
   return (
     <Fragment>
-      {children}
+      {flagEnabled && children}
     </Fragment>
   )
 };

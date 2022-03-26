@@ -1,0 +1,25 @@
+{
+  "sourceMaps": "inline",
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "^@/(.+)": "./src/\\1"
+        }
+      }
+    ]
+  ]
+}
