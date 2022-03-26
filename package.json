@@ -4,7 +4,7 @@
   "description": "Feature development made easy",
   "author": "Stretch Codes Ltd",
   "license": "MIT",
-  "repository": "stretch0/featurely-react",
+  "repository": "feijoa-dev/feijoa-react",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
