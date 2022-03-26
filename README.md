@@ -13,7 +13,7 @@ npm install --save feijoa-react
 ```tsx
 import React, { Component } from 'react'
 
-import { Feature } from "@featurely/react";
+import { Feature } from "@feijoa/react";
 
 class Example extends Component {
   render() {

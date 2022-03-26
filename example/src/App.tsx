@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Feature } from '@featurely/react'
+import { Feature } from '@feijoa/react'
 
 const App = () => {
   return (
