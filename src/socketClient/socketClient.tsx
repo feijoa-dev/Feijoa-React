@@ -29,12 +29,13 @@ const createSocketClient = ({
       accessKey: config.accessKey, 
       appId: config.appId, 
       flagName, 
-      environment
+      environment,
+      location: window?.location
     }
   })
 
   socketClient.on("connect_error", (err) => {
-    console.log(`Featurely connect_error due to ${err.message}`);
+    console.error(`Featurely connect_error due to ${err.message}`);
   });
   
   return socketClient

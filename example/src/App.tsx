@@ -36,6 +36,13 @@ const App = () => {
         <p className='unmanaged-feature-flag hidden'>Unmanaged Hidden</p>
       </Feature>
 
+      <Feature envVar="REACT_APP_VISIBLE_FEATURE">
+        <p className='unmanaged-feature-flag'>Env var Visible</p>
+      </Feature>
+      <Feature envVar="REACT_APP_HIDDEN_FEATURE">
+        <p className='unmanaged-feature-flag hidden'>Env var Hidden</p>
+      </Feature>
+
       {
         showVisibleFeature && <p>Visible hook</p>
       }
