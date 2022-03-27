@@ -11,16 +11,24 @@ const {
 
 const useFeature = ({ 
   flag,
+  enabled,
+  envVar,
   defaultValue = false
 }: FeatureProps): boolean => {
 
+  const useManagedFlag = flag !== undefined;
+
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
 
-    if(typeof flag === "boolean") {
-      return flag;
+    if( envVar !== undefined ) {
+      return process.env?.[envVar] === "true";
+    }
+
+    if( enabled !== undefined ) {
+      return enabled;
     }
     
-    if(defaultValue !== undefined) {
+    if( defaultValue !== undefined ) {
       return defaultValue;
     }
 
@@ -44,13 +52,13 @@ const useFeature = ({
   }, []);
   
   useEffect(() => {
-
-    if(typeof flag !== "string") {
+    
+    if( !useManagedFlag ) {
       return
     }
     
     const socketClient = createSocketClient({
-      flagName: flag,
+      flagName: flag as string,
       environment: environment
     }).connect();
 
@@ -67,7 +75,7 @@ const useFeature = ({
       socketClient.removeListener(FEATURE_FLAG.UPDATED);
     }
     
-  }, [])
+  }, []);
 
   return featureEnabled;
 }

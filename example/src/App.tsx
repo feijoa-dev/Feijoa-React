@@ -13,11 +13,11 @@ const App = () => {
   })
 
   const showBooleanFeature = useFeature({
-    flag: true
+    enabled: true
   })
 
   const hideBooleanFeature = useFeature({
-    flag: false
+    enabled: false
   })
   
   return (
