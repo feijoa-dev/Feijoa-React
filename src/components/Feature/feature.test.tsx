@@ -46,30 +46,4 @@ describe('Feature Component', () => {
       expect(queryByText("My Feature")).toBeFalsy()
     })
   })
-
-  describe("Managed Component", () => {
-    it("Should render feature", () => {
-      
-      // (useFeature as jest.Mock).mockReturnValueOnce(true);
-
-      const { queryByText } = render(
-        <Feature flag="my-feature">
-          <p>My Feature</p>
-        </Feature>
-      )
-      expect(queryByText("My Feature")).toBeTruthy()
-    })
-
-    it("Should NOT render feature", () => {
-      
-      // (useFeature as jest.Mock).mockReturnValueOnce(false);
-
-      const { queryByText } = render(
-        <Feature flag="my-feature">
-          <p>My Feature</p>
-        </Feature>
-      )
-      expect(queryByText("My Feature")).toBeFalsy()
-    })
-  })
 })
