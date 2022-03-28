@@ -27,7 +27,7 @@ import { Feature } from "@feijoa/react";
 class Example extends Component {
   render() {
     return (
-      <Feature flag={true}>
+      <Feature enabled={true}>
         <MyFeature />
       <Feature>
     )
@@ -44,7 +44,7 @@ import { useFeature } from "@feijoa/react";
 
 const Example = () => {
   const showFeature = useFeature({
-    flag: true
+    enabled: true
   });
 
   return (
