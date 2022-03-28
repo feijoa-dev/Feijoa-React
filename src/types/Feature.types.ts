@@ -1,4 +1,6 @@
 export interface FeatureProps {
-  flag: boolean|string;
+  flag?: string;
   defaultValue?: boolean;
+  envVar?: string;
+  enabled?: boolean;
 }

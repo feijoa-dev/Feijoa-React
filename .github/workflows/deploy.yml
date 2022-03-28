@@ -2,9 +2,11 @@ name: Deploy CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+  release:
+    types:
+      - created
 
 jobs:
   build:
@@ -23,6 +25,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@feijoa'
       - run: npm ci
+      - run: npm run test:unit
+      - run: npm run test:integration
       - run: npm run build
       - run: npm publish --access public
         env:

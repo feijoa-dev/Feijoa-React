@@ -19,6 +19,7 @@
     "test:build": "run-s build",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:integration": "cd ./example && npm run cypress:run",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
@@ -39,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -66,5 +68,8 @@
   ],
   "dependencies": {
     "socket.io-client": "^4.4.1"
-  }
+  },
+  "workspaces": [
+    "./example"
+  ]
 }

@@ -20,7 +20,6 @@ io.on("connection", async (socket) => {
   console.info(`client id: ${socket.id} connected`);
 
   const { appId, flagName, environment } = socket.handshake.query;
-  console.log("flagName:", flagName)
 
   const room = `${appId}/${flagName}/${environment}`
   

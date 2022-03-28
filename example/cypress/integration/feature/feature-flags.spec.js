@@ -57,6 +57,14 @@ describe('example to-do app', () => {
       it('hides inactive feature', () => {
         cy.contains('Hidden hook with boolean flag').should('not.exist');
       });
+
+      it('displays active feature managed by env var', () => {
+        cy.contains('Env var Visible').should('have.length', 1)
+      });
+
+      it('displays inactive feature managed by env var', () => {
+        cy.contains('Env var Hidden').should('not.exist', 1)
+      });
       
     })
     

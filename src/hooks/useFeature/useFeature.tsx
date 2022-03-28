@@ -4,23 +4,34 @@ import createSocketClient from '../../socketClient';
 import { FEATURE_FLAG } from "../../constants/socketEvents";
 
 const {
-  FEATURELY_ENV,
-  REACT_APP_FEATURELY_ENV,
+  FEIJOA_ENV,
+  REACT_APP_FEIJOA_ENV,
   NODE_ENV
 } = process.env;
 
 const useFeature = ({ 
   flag,
+  enabled,
+  envVar,
   defaultValue = false
 }: FeatureProps): boolean => {
 
+  const useManagedFlag = flag !== undefined;
+
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
 
-    if(typeof flag === "boolean") {
-      return flag;
+    if( envVar !== undefined ) {
+      if ( !process.env?.[envVar] ) {
+        console.error(`No environment variable found in process.env with value: ${envVar}`);
+      }
+      return process.env?.[envVar] === "true";
+    }
+
+    if( enabled !== undefined ) {
+      return enabled;
     }
     
-    if(defaultValue !== undefined) {
+    if( defaultValue !== undefined ) {
       return defaultValue;
     }
 
@@ -28,29 +39,31 @@ const useFeature = ({
   });
 
   const environment = useMemo(() => {
-    if ( FEATURELY_ENV !== undefined ) {
-      return FEATURELY_ENV;
+    if ( FEIJOA_ENV !== undefined ) {
+      return FEIJOA_ENV;
     }
 
-    if ( REACT_APP_FEATURELY_ENV !== undefined ) {
-      return REACT_APP_FEATURELY_ENV;
+    if ( REACT_APP_FEIJOA_ENV !== undefined ) {
+      return REACT_APP_FEIJOA_ENV;
     }
 
     if ( NODE_ENV !== undefined ) {
       return NODE_ENV;
     }
 
+    console.warn('No environment set for Feijoa. Consider setting a "FEIJOA_ENV" value. Defaulting to "development');
+
     return "development";
   }, []);
   
   useEffect(() => {
-
-    if(typeof flag !== "string") {
+    
+    if( !useManagedFlag ) {
       return
     }
     
     const socketClient = createSocketClient({
-      flagName: flag,
+      flagName: flag as string,
       environment: environment
     }).connect();
 
@@ -67,7 +80,7 @@ const useFeature = ({
       socketClient.removeListener(FEATURE_FLAG.UPDATED);
     }
     
-  }, [])
+  }, []);
 
   return featureEnabled;
 }
