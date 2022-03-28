@@ -28,7 +28,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run test:unit
-      - run: npm run test:integration
+      # - run: npm run test:integration
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           REACT_APP_FEIJOA_ENV: production
