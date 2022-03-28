@@ -1,6 +1,6 @@
 {
   "name": "@feijoa/react",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Feature development made easy",
   "author": "Stretch Codes Ltd",
   "license": "MIT",
@@ -71,5 +71,18 @@
   },
   "workspaces": [
     "./example"
+  ],
+  "keywords": [
+    "React",
+    "Optimizely",
+    "Flagsmith",
+    "launchdarkly",
+    "launch",
+    "toggles",
+    "feature",
+    "flag",
+    "feature toggle",
+    "feature flag",
+    "continuous deployment"
   ]
 }
