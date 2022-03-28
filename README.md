@@ -83,9 +83,9 @@ Feijoa tries to simplify feature flag management by providing a centralised dash
 
 | Env Var         | Type        | Description                                                       | 
 | ------------    | ----------- | -------------------------------------------------------           | 
-| `FEATURELY_ENV` | string      | Sets the environment for the managed feature flag and maps to the environments configured in Feijoa Dashboard. The defaults are `local`, `development`, `staging`, `production` but you can add custom environments in the dashboard| 
-| `FEATURELY_APP_ID` | string      | Sets the app ID of your Feijoa configured app |
-| `FEATURELY_ACCESS_KEY` | string  | Sets your access key provided in the Feijoa Dashboard to grant access to the app | 
+| `FEIJOA_ENV` | string      | Sets the environment for the managed feature flag and maps to the environments configured in Feijoa Dashboard. The defaults are `local`, `development`, `staging`, `production` but you can add custom environments in the dashboard| 
+| `FEIJOA_APP_ID` | string      | Sets the app ID of your Feijoa configured app |
+| `FEIJOA_ACCESS_KEY` | string  | Sets your access key provided in the Feijoa Dashboard to grant access to the app | 
 -------------------------
 
 

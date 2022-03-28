@@ -1,12 +1,12 @@
 import { io } from 'socket.io-client';
 
 const {
-  REACT_APP_FEATURELY_SOCKET_URL,
-  FEATURELY_SOCKET_URL,
-  REACT_APP_FEATURELY_APP_ID,
-  FEATURELY_APP_ID,
-  REACT_APP_FEATURELY_ACCESS_KEY,
-  FEATURELY_ACCESS_KEY,
+  REACT_APP_FEIJOA_SOCKET_URL,
+  FEIJOA_SOCKET_URL,
+  REACT_APP_FEIJOA_APP_ID,
+  FEIJOA_APP_ID,
+  REACT_APP_FEIJOA_ACCESS_KEY,
+  FEIJOA_ACCESS_KEY,
 } = process.env;
 
 const createSocketClient = ({
@@ -18,9 +18,9 @@ const createSocketClient = ({
 }) => {
   
   const config = {
-    baseUrl: REACT_APP_FEATURELY_SOCKET_URL || FEATURELY_SOCKET_URL || 'http://localhost:3001',
-    appId: REACT_APP_FEATURELY_APP_ID || FEATURELY_APP_ID,
-    accessKey: REACT_APP_FEATURELY_ACCESS_KEY || FEATURELY_ACCESS_KEY
+    baseUrl: REACT_APP_FEIJOA_SOCKET_URL || FEIJOA_SOCKET_URL || 'http://localhost:3001',
+    appId: REACT_APP_FEIJOA_APP_ID || FEIJOA_APP_ID,
+    accessKey: REACT_APP_FEIJOA_ACCESS_KEY || FEIJOA_ACCESS_KEY
   };
 
   const socketClient = io(config.baseUrl, {
@@ -35,7 +35,7 @@ const createSocketClient = ({
   })
 
   socketClient.on("connect_error", (err) => {
-    console.error(`Featurely connect_error due to ${err.message}`);
+    console.error(`Feijoa connect_error due to ${err.message}`);
   });
   
   return socketClient
