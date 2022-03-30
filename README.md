@@ -1,13 +1,20 @@
 # @feijoa/react
 
+
 [![NPM](https://img.shields.io/npm/v/@feijoa/react.svg)](https://www.npmjs.com/package/@feijoa/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+- [Dashboard](#dashboard)
 - [Install](#install)
 - [Usage](#usage)
+- [Setup](#setup)
 - [Problem](#problem)
 - [Solution](#solution)
 - [Props](#props)
 - [Environment Variables](#environment-variables)
+
+## Dashboard
+
+[Feijoa Dashboard](https://app.feijoa.dev)
 
 ## Install
 
@@ -53,7 +60,11 @@ const Example = () => {
 }
 ```
 
-### Problem
+## Setup
+
+Feijoa offers a centralised dashboard for managing features. As shown in the examples above, this is not essential for using this library but the advantages are discussed below.
+
+## Problem
 
 Feature flags are a great way to manage your feature release. They make it super easy to enable or disable your feature with the flick of a switch. However, as your application grows and you get more and more features and more and more developers on the team, it becomes a lot harder trying to manage all your feature flags. 
 
@@ -63,11 +74,11 @@ You also need to make sure your other team members have access to the list of fe
 
 Furthermore, in order to toggle the value of a feature flag, you often need to do a release if your flag is in your source code or force your app / server to restart so that it picks up your new environment variable value. 
 
-### Solution
+## Solution
 
 Feijoa tries to simplify feature flag management by providing a centralised dashboard to manage all these features. Flags can be toggled in real time allowing anybody to enable a feature when they are ready or even immediately disable it if they notice a bug. Sometimes a dashboard can be overkill so Feijoa still offers the ability to manage flags with booleans or environment variables to make things easy to get up and running. 
 
-### Props
+## Props
 
 | Prop            | Type        | Description                                                       | Required |
 | ------------    | ----------- | -------------------------------------------------------           | ---------|
@@ -77,7 +88,7 @@ Feijoa tries to simplify feature flag management by providing a centralised dash
 | `defaultValue`  | boolean     | Sets the initial value of your feature when your app loads        | false    |
 -------------------------
 
-### Environment Variables
+## Environment Variables
 
 *NOTE: All env vars can be prefixed with `REACT_APP_` for use with create-react-app*
 
@@ -91,4 +102,4 @@ Feijoa tries to simplify feature flag management by providing a centralised dash
 
 ## License
 
-MIT © [stretch0](https://github.com/stretch0)
+MIT © [Feijoa Dev](https://github.com/feijoa-dev)
