@@ -11,6 +11,7 @@
 - [Solution](#solution)
 - [Props](#props)
 - [Environment Variables](#environment-variables)
+- [Overrides](#overrides)
 
 ## Dashboard
 
@@ -99,6 +100,33 @@ Feijoa tries to simplify feature flag management by providing a centralised dash
 | `FEIJOA_ACCESS_KEY` | string  | Sets your access key provided in the Feijoa Dashboard to grant access to the app | 
 -------------------------
 
+## Overrides
+
+Sometimes it's useful for some users to be able override feature flags on their local browser. This is paticularly useful if you want a feature disabled for the public but need to enable it for a one person to test. E.g. for the QA tester or a product owner etc.
+
+This can be done either via a query string or via a setting a cookie
+
+*NOTE: query string or cookie keys must match either the `flag` or `envVar` name you pass into the Feijoa component or hook*
+
+### Query string
+
+```sh
+ // enable
+ https://example.com?my_feature=true
+
+ // disable
+ https://example.com?my_feature=false
+```
+
+### Cookie
+
+```js
+  // enable
+  document.cookie = 'my_feature=true;'
+
+  // disable
+  document.cookie = 'my_feature=false;'
+```
 
 ## License
 

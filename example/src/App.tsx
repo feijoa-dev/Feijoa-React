@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { useFeature, Feature} from '@feijoa/react'
+import { 
+  useFeature, 
+  Feature
+} from '@feijoa/react'
 
 const App = () => {
   

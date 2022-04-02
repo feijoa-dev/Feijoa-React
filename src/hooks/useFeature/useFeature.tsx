@@ -3,6 +3,18 @@ import { FeatureProps } from "../../types/Feature.types";
 import createSocketClient from '../../socketClient';
 import { FEATURE_FLAG } from "../../constants/socketEvents";
 
+const getBoolVal = (val: string): boolean => {
+  switch(val) {
+    case "true":
+      return true;
+    case "false":
+      return false;
+    default:
+      return false;
+  }
+}
+
+
 const {
   FEIJOA_ENV,
   REACT_APP_FEIJOA_ENV,
@@ -17,6 +29,13 @@ const useFeature = ({
 }: FeatureProps): boolean => {
 
   const useManagedFlag = flag !== undefined;
+
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+
+  const cookies = document.cookie.split(";").reduce( (ac, cv) => (
+    Object.assign(ac, {[cv.split('=')[0]]: cv.split('=')[1]})
+  ), {});
 
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
 
@@ -37,6 +56,25 @@ const useFeature = ({
 
     return false;
   });
+
+  useEffect(() => {
+    if( flag && params[flag] ) {
+      setFeatureEnabled(getBoolVal(params[flag]));
+    }
+    
+    if( flag && cookies[flag] ) {
+      setFeatureEnabled(getBoolVal(cookies[flag]));  
+    }
+    
+    if( envVar && params?.[envVar ] ) {
+      setFeatureEnabled(getBoolVal(params[envVar]));  
+    }
+
+    if( envVar && cookies?.[envVar] ) {
+      setFeatureEnabled(getBoolVal(cookies[envVar]));  
+    }
+
+  }, [params, cookies])
 
   const environment = useMemo(() => {
     if ( FEIJOA_ENV !== undefined ) {
