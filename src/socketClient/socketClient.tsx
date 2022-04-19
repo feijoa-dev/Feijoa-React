@@ -2,7 +2,7 @@ import { io } from 'socket.io-client';
 
 const {
   REACT_APP_FEIJOA_SOCKET_URL,
-  FEIJOA_SOCKET_URL,
+  FEIJOA_SOCKET_URL = "https://gateway.feijoa.dev",
   REACT_APP_FEIJOA_APP_ID,
   FEIJOA_APP_ID,
   REACT_APP_FEIJOA_ACCESS_KEY,
@@ -18,7 +18,7 @@ const createSocketClient = ({
 }) => {
   
   const config = {
-    baseUrl: REACT_APP_FEIJOA_SOCKET_URL || FEIJOA_SOCKET_URL || 'http://localhost:3001',
+    baseUrl: REACT_APP_FEIJOA_SOCKET_URL || FEIJOA_SOCKET_URL,
     appId: REACT_APP_FEIJOA_APP_ID || FEIJOA_APP_ID,
     accessKey: REACT_APP_FEIJOA_ACCESS_KEY || FEIJOA_ACCESS_KEY
   };

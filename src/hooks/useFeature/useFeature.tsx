@@ -14,7 +14,6 @@ const getBoolVal = (val: string): boolean => {
   }
 }
 
-
 const {
   FEIJOA_ENV,
   REACT_APP_FEIJOA_ENV,
