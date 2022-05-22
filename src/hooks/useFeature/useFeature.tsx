@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { FeatureProps } from "@/types/Feature.types";
+import { FeatureProps } from "../../types/Feature.types";
 
 const getBoolVal = (val: string): boolean => {
   switch(val) {
