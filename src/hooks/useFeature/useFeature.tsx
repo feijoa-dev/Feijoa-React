@@ -1,7 +1,5 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { FeatureProps } from "../../types/Feature.types";
-import createSocketClient from '../../socketClient';
-import { FEATURE_FLAG } from "../../constants/socketEvents";
 
 const getBoolVal = (val: string): boolean => {
   switch(val) {
@@ -14,20 +12,11 @@ const getBoolVal = (val: string): boolean => {
   }
 }
 
-const {
-  FEIJOA_ENV,
-  REACT_APP_FEIJOA_ENV,
-  NODE_ENV
-} = process.env;
-
 const useFeature = ({ 
-  flag,
   enabled,
   envVar,
   defaultValue = false
 }: FeatureProps): boolean => {
-
-  const useManagedFlag = flag !== undefined;
 
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
@@ -39,10 +28,14 @@ const useFeature = ({
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
 
     if( envVar !== undefined ) {
-      if ( !process.env?.[envVar] ) {
+
+      const environmentVariable = process.env?.[envVar] || process.env?.[`REACT_APP_${envVar}`]
+      
+      if ( !environmentVariable ) {
         console.error(`No environment variable found in process.env with value: ${envVar}`);
       }
-      return process.env?.[envVar] === "true";
+      
+      return environmentVariable === "true";
     }
 
     if( enabled !== undefined ) {
@@ -57,15 +50,12 @@ const useFeature = ({
   });
 
   useEffect(() => {
-    if( flag && params[flag] ) {
-      setFeatureEnabled(getBoolVal(params[flag]));
-    }
     
-    if( flag && cookies[flag] ) {
-      setFeatureEnabled(getBoolVal(cookies[flag]));  
+    if( envVar && params?.[envVar] ) {
+      setFeatureEnabled(getBoolVal(params[envVar]));  
     }
-    
-    if( envVar && params?.[envVar ] ) {
+
+    if( envVar && params?.[envVar?.replace("REACT_APP_", "")] ) {
       setFeatureEnabled(getBoolVal(params[envVar]));  
     }
 
@@ -73,51 +63,11 @@ const useFeature = ({
       setFeatureEnabled(getBoolVal(cookies[envVar]));  
     }
 
+    if( envVar && cookies?.[envVar?.replace("REACT_APP_", "")] ) {
+      setFeatureEnabled(getBoolVal(cookies[envVar]));  
+    }
+
   }, [params, cookies])
-
-  const environment = useMemo(() => {
-    if ( FEIJOA_ENV !== undefined ) {
-      return FEIJOA_ENV;
-    }
-
-    if ( REACT_APP_FEIJOA_ENV !== undefined ) {
-      return REACT_APP_FEIJOA_ENV;
-    }
-
-    if ( NODE_ENV !== undefined ) {
-      return NODE_ENV;
-    }
-
-    console.warn('No environment set for Feijoa. Consider setting a "FEIJOA_ENV" value. Defaulting to "development');
-
-    return "development";
-  }, []);
-  
-  useEffect(() => {
-    
-    if( !useManagedFlag ) {
-      return
-    }
-    
-    const socketClient = createSocketClient({
-      flagName: flag as string,
-      environment: environment
-    }).connect();
-
-    socketClient.on(FEATURE_FLAG.VALUE, (featureEnabled: boolean) => {
-      setFeatureEnabled(featureEnabled);
-    });
-    
-    socketClient.on(FEATURE_FLAG.UPDATED, (featureEnabled: boolean) => {
-      setFeatureEnabled(featureEnabled);
-    });
-
-    return () => {
-      socketClient.removeListener(FEATURE_FLAG.VALUE);
-      socketClient.removeListener(FEATURE_FLAG.UPDATED);
-    }
-    
-  }, []);
 
   return featureEnabled;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@feijoa/react",
-  "version": "1.4.0",
+  "version": "2.0.1",
   "description": "Feature development made easy",
   "author": "Stretch Codes Ltd",
   "license": "MIT",
@@ -66,9 +66,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "socket.io-client": "^4.4.1"
-  },
   "workspaces": [
     "./example"
   ],

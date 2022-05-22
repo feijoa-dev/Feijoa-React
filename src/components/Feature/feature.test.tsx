@@ -36,6 +36,16 @@ describe('Feature Component', () => {
       expect(queryByText("My Feature")).toBeTruthy()
     })
 
+    it('Should render feature when environment without REACT_APP_ prefix variable value is true', () => {
+
+      const { queryByText } = render(
+        <Feature envVar="OTHER_FEATURE_1">
+          <p>My Feature</p>
+        </Feature>
+      )
+      expect(queryByText("My Feature")).toBeTruthy()
+    })
+
     it('Should NOT render feature when environment variable value is false', () => {
 
       const { queryByText } = render(

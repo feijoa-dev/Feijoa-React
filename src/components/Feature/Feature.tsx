@@ -6,7 +6,6 @@ import { FeatureProps } from '../../types/Feature.types';
 import useFeature from "../../hooks/useFeature";
 
 const Feature: FC<FeatureProps> = ({ 
-  flag, 
   enabled,
   envVar,
   children,
@@ -14,7 +13,6 @@ const Feature: FC<FeatureProps> = ({
 }) => {
 
   const flagEnabled = useFeature({
-    flag,
     enabled,
     envVar,
     defaultValue
