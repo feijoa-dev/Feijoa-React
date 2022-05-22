@@ -11,13 +11,13 @@
 - [Overrides](#overrides)
 
 ## What is Feijoa?
-A comprehensive React feature flag library providing reusable components and hooks along with easy override features so internal, non-technical users can toggle them off with ease without enabling them for everyone else.
+A comprehensive React feature flag library providing reusable components and hooks along with easy override features so internal, non-technical users can toggle them off with ease without effecting anybody else.
 
 ## Problem
 
-As your code bases grows larger, it can be unclear what code is part of a feature and if it should be enabled. Some feature flags are also unclear if they are part of some other config or a simple conditional. Having a verbose feature flag component or hook helps distinguish them from the rest of your code.
+As code bases grow larger, it can be unclear what code is part of a feature and if it should be enabled. Some feature flags are also unclear if they are part of some other config or just simply a conditional statement. Having a verbose feature flag component or hook helps distinguish them from the rest of your code.
 
-Old feature flags often get left in code bases as teams are unsure if they are still being used or not. Well having a common component to manage features makes it much easier to find them all when the time comes to remove them.
+Old feature flags often get left in code bases as teams are unsure if they are still being used or not. Having a common component to manage features makes it much easier to find them all when the time comes to remove them.
 
 ## Install
 
