@@ -24,6 +24,10 @@ Old feature flags often get left in code bases as teams are unsure if they are s
 ```bash
 npm install --save feijoa-react
 ```
+or
+```bash
+yarn add feijoa-react
+```
 
 ## Usage
 
