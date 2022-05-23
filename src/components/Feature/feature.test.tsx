@@ -5,7 +5,7 @@ import Feature from '.'
 
 describe('Feature Component', () => {
 
-  describe.only("Unmanaged flags", () => {
+  describe("Unmanaged flags", () => {
     it('Should render feature when enabled value is true', () => {
 
       const { queryByText } = render(
@@ -54,6 +54,15 @@ describe('Feature Component', () => {
         </Feature>
       )
       expect(queryByText("My Feature")).toBeFalsy()
+    })
+
+    it('Should use default value when it can\'t find the env var', () => {
+      const { queryByText } = render(
+        <Feature envVar="NON_EXISTANT_ENV_VAR" defaultValue={true}>
+          <p>My Feature</p>
+        </Feature>
+      )
+      expect(queryByText("My Feature")).toBeTruthy()
     })
   })
 })

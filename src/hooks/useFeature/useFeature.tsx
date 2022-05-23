@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { FeatureProps } from "../../types/Feature.types";
 
 const getBoolVal = (val: string): boolean => {
@@ -21,9 +21,11 @@ const useFeature = ({
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
-  const cookies = document.cookie.split(";").reduce( (ac, cv) => (
-    Object.assign(ac, {[cv.split('=')[0]]: cv.split('=')[1]})
-  ), {});
+  const cookies = useMemo(() => {
+    return document.cookie.split(";").reduce( (ac, cv) => (
+      Object.assign(ac, {[cv.split('=')[0]]: cv.split('=')[1]})
+    ), {});
+  }, [])
 
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
 
@@ -31,11 +33,11 @@ const useFeature = ({
 
       const environmentVariable = process.env?.[envVar] || process.env?.[`REACT_APP_${envVar}`]
       
-      if ( !environmentVariable ) {
-        console.error(`No environment variable found in process.env with value: ${envVar}`);
-      }
-      
-      return environmentVariable === "true";
+      if ( environmentVariable ) {
+        return environmentVariable === "true";
+      } 
+
+      console.warn(`No environment variable found in process.env with value: ${envVar}`);
     }
 
     if( enabled !== undefined ) {
