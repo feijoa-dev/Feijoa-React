@@ -26,6 +26,9 @@ const App = () => {
       <Feature envVar="REACT_APP_HIDDEN_FEATURE">
         <p className='unmanaged-feature-flag hidden'>Env var Hidden</p>
       </Feature>
+      <Feature name="MY_FEATURE" enabled={false}>
+        <p className='my-feature'>My feature</p>
+      </Feature>
 
       {
         showBooleanFeature && <p>Visible hook with boolean flag</p>

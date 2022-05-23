@@ -13,6 +13,7 @@ const getBoolVal = (val: string): boolean => {
 }
 
 const useFeature = ({ 
+  name,
   enabled,
   envVar,
   defaultValue = false
@@ -57,12 +58,20 @@ const useFeature = ({
       setFeatureEnabled(getBoolVal(params[envVar]));  
     }
 
+    if( name && params?.[name] ) {
+      setFeatureEnabled(getBoolVal(params[name]));  
+    }
+
     if( envVar && params?.[envVar?.replace("REACT_APP_", "")] ) {
       setFeatureEnabled(getBoolVal(params[envVar]));  
     }
 
     if( envVar && cookies?.[envVar] ) {
       setFeatureEnabled(getBoolVal(cookies[envVar]));  
+    }
+
+    if( name && cookies?.[name] ) {
+      setFeatureEnabled(getBoolVal(cookies[name]));  
     }
 
     if( envVar && cookies?.[envVar?.replace("REACT_APP_", "")] ) {
