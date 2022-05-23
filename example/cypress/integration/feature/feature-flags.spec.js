@@ -47,6 +47,14 @@ describe('example to-do app', () => {
 
           cy.contains('Env var Hidden').should('have.length', 1);
         })
+
+        it("Should override enabled value", () => {
+          cy.contains('My feature').should('not.exist')
+
+          cy.visit('http://localhost:3000?MY_FEATURE=true')
+
+          cy.contains('My feature').should('have.length', 1);
+        })
       })
 
       describe("Cookie override", () => {
@@ -71,6 +79,16 @@ describe('example to-do app', () => {
           cy.visit('http://localhost:3000')
 
           cy.contains('Env var Hidden').should('have.length', 1);
+        })
+
+        it("Should override enabled value", () => {
+          cy.contains('My feature').should('not.exist')
+
+          cy.setCookie("MY_FEATURE", "true")
+
+          cy.visit('http://localhost:3000')
+
+          cy.contains('My feature').should('have.length', 1);
         })
       })
     })
