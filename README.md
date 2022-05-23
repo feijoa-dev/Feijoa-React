@@ -4,8 +4,8 @@
 [![NPM](https://img.shields.io/npm/v/@feijoa/react.svg)](https://www.npmjs.com/package/@feijoa/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 - [What is Feijoa](#what-is-feijoa)
-- [Problem](#problem)
 - [Install](#install)
+- [Problem](#problem)
 - [Usage](#usage)
 - [Props](#props)
 - [Overrides](#overrides)
@@ -31,10 +31,11 @@ yarn add feijoa-react
 
 ## Usage
 
-
 ```sh 
 #.env
 FEATURE_ENABLED=true
+# or if you're using create react app
+REACT_APP_FEATURE_ENABLED=true
 ```
 
 ### Component
@@ -85,7 +86,7 @@ Sometimes it's useful for some users to be able override feature flags on their 
 
 This can be done either via a query string or via a setting a cookie
 
-*NOTE: query string or cookie keys must match either the `flag` or `envVar` name you pass into the Feijoa component or hook*
+*NOTE: query string or cookie keys must match the `envVar` name you pass into the Feijoa component or hook*
 
 ### Query string
 
