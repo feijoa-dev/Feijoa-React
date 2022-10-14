@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/feijoa-dev/feijoa-react/compare/v2.1.0...v2.2.0) (2022-10-14)
+
+
+### Features
+
+* forcing minor ver bump ([f3d090b](https://github.com/feijoa-dev/feijoa-react/commit/f3d090b056c00136b72e24790f8f8859c8e29dd0))
+
 # [2.1.0](https://github.com/feijoa-dev/feijoa-react/compare/v2.0.0...v2.1.0) (2022-10-14)
 
 
