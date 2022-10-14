@@ -18,13 +18,10 @@
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:unit": "cross-env react-scripts test --env=jsdom",
     "test:integration": "cd ./example && npm run cypress:run",
     "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
-    "version:select": "node ./scripts/versionSelect.js",
-    "husky:prepare": "husky install"
+    "predeploy": "cd example && npm install && npm run build"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
