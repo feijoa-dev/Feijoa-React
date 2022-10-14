@@ -4,11 +4,11 @@ on:
   push:
     branches: 
       - '*'
-      - '!master'
+      - '!main'
   pull_request:
     branches: 
       - '*'
-      - '!master'
+      - '!main'
 
 jobs:
   build:
@@ -20,19 +20,17 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm run build
       - run: npm run test:unit
-      # - run: npm run test:integration
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           REACT_APP_FEIJOA_ENV: production
-          REACT_APP_FEIJOA_APP_ID: 2a1acb93-5d44-4ae6-a7cf-a1eb0c073bf8
-          REACT_APP_FEIJOA_ACCESS_KEY: 1d13658e-3932-4cc5-a94e-9fe04249227b
           REACT_APP_VISIBLE_FEATURE: true
           REACT_APP_HIDDEN_FEATURE: false
+      # - run: npm run test:integration
+      - run: npm run build

@@ -78,6 +78,7 @@ const Example = () => {
 | `enabled`       | boolean     | `true` = show, `false` = hide                                     | false    |
 | `envVar`        | string      | Maps to a environment variable                                    | false    |
 | `defaultValue`  | boolean     | Sets the initial value of your feature when your app loads        | false    |
+| `name`          | string      | Name of your feature flag (used for overrides)                    | false    |
 -------------------------
 
 ## Overrides
