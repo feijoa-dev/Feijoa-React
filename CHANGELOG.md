@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/feijoa-dev/feijoa-react/compare/v1.0.0...v1.0.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* include version tags from other branches ([ce50ea1](https://github.com/feijoa-dev/feijoa-react/commit/ce50ea15be95782694b952e69ab26b53031b6daf))
+
 # 1.0.0 (2022-10-14)
 
 
