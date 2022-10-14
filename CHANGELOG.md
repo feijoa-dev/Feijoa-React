@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/feijoa-dev/feijoa-react/compare/v1.0.3...v2.0.0) (2022-10-14)
+
+
+* Merge pull request #14 from feijoa-dev/fix-release-rc ([aa7b561](https://github.com/feijoa-dev/feijoa-react/commit/aa7b5611df49ec56d0e14a2bd9a16e1209cbe070)), closes [#14](https://github.com/feijoa-dev/feijoa-react/issues/14)
+
+
+### BREAKING CHANGES
+
+* forcing major ver bump
+
 ## [1.0.3](https://github.com/feijoa-dev/feijoa-react/compare/v1.0.2...v1.0.3) (2022-10-14)
 
 
