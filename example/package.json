@@ -1,7 +1,7 @@
 {
   "name": "feijoa-react-example",
   "homepage": ".",
-  "version": "0.0.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
