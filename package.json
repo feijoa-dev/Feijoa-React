@@ -20,8 +20,7 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=true react-scripts test --env=jsdom",
     "test:integration": "cd ./example && npm run cypress:run",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build"
+    "test:watch": "react-scripts test --env=jsdom"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
