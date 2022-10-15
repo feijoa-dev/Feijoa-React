@@ -20,7 +20,7 @@
       {
         "assets": [
           "CHANGELOG.md",
-          "dist",
+          "dist/*",
           "package.json"
         ]
       }
