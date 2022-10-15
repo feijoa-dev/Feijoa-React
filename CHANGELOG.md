@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.2...v2.2.3) (2022-10-15)
+
+
+### Bug Fixes
+
+* Updated dependencies and docs ([117846d](https://github.com/feijoa-dev/feijoa-react/commit/117846da0eb669b3bf0e1e1ff21ed349bba9e94e))
+
 ## [2.2.2](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.1...v2.2.2) (2022-10-15)
 
 
