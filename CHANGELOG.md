@@ -1,3 +1,11 @@
+## [2.2.6](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.5...v2.2.6) (2022-10-15)
+
+
+### Bug Fixes
+
+* Fixed cookie value override ([9f2880a](https://github.com/feijoa-dev/feijoa-react/commit/9f2880af904ef42ef272194888334704f2eca7d6))
+* fixed typo ([4f6eb9d](https://github.com/feijoa-dev/feijoa-react/commit/4f6eb9d5211a33506ab7400f1f50d7f44ed0590e))
+
 ## [2.2.5](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.4...v2.2.5) (2022-10-15)
 
 
