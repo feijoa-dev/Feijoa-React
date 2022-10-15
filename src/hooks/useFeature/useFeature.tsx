@@ -23,9 +23,13 @@ const useFeature = ({
   const params = Object.fromEntries(urlSearchParams.entries());
 
   const cookies = useMemo(() => {
-    return document.cookie.split(";").reduce( (ac, cv) => (
-      Object.assign(ac, {[cv.split('=')[0]]: cv.split('=')[1]})
-    ), {});
+    return document.cookie.split(";")
+      .map(cookie => cookie.replace(" ", ""))
+      .reduce((acc, cookie) => (
+        Object.assign(acc, {
+          [cookie.split('=')[0]]: cookie.split('=')[1]
+        })
+      ), {});
   }, [])
 
   const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
@@ -78,7 +82,7 @@ const useFeature = ({
       setFeatureEnabled(getBoolVal(cookies[envVar]));  
     }
 
-  }, [params, cookies])
+  }, [params, cookies, envVar, name])
 
   return featureEnabled;
 }
