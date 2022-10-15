@@ -1,3 +1,11 @@
+## [2.2.5](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.4...v2.2.5) (2022-10-15)
+
+
+### Bug Fixes
+
+* removed example ([94070ce](https://github.com/feijoa-dev/feijoa-react/commit/94070cee758c68871e9c1d19619fe735a10bec4d))
+* removed unused files ([47f0b90](https://github.com/feijoa-dev/feijoa-react/commit/47f0b90b447c3d5d9c1066f3829220354a4e05b9))
+
 ## [2.2.4](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.3...v2.2.4) (2022-10-15)
 
 
