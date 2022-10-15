@@ -36,7 +36,7 @@ const useFeature = ({
 
     if( envVar !== undefined ) {
 
-      const environmentVariable = process.env?.[envVar] || process.env?.[`REACcT_APP_${envVar}`]
+      const environmentVariable = process.env?.[envVar] || process.env?.[`REACT_APP_${envVar}`]
       
       if ( environmentVariable ) {
         return environmentVariable === "true";
