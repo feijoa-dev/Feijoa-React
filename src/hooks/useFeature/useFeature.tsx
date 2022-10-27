@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import fromEntries from "object.fromentries";
 import { FeatureProps } from "../../types/Feature.types";
 
 const getBoolVal = (val: string): boolean => {
@@ -20,7 +21,7 @@ const useFeature = ({
 }: FeatureProps): boolean => {
 
   const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
+  const params = fromEntries(urlSearchParams.entries());  
 
   const cookies = useMemo(() => {
     return document.cookie.split(";")
