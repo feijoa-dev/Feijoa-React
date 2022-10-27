@@ -1,3 +1,11 @@
+## [2.2.7](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.6...v2.2.7) (2022-10-27)
+
+
+### Bug Fixes
+
+* Added dev dep back in ([3a7a224](https://github.com/feijoa-dev/feijoa-react/commit/3a7a224c4373ba80f1b09f927163b479ea599aaf))
+* Added object.fromentries pollyfill ([9256096](https://github.com/feijoa-dev/feijoa-react/commit/9256096aa853bbc5adf6011421c29ad8669f5cc5))
+
 ## [2.2.6](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.5...v2.2.6) (2022-10-15)
 
 
