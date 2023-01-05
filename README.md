@@ -14,11 +14,11 @@ A comprehensive React feature flag library providing reusable components and hoo
 
 ## Problem
 
-It can be finicky managing feature flags across many environments and is exacerbated when you need to enable a feature for one user i.e. a QA who needs to test. Or perhaps you want to enable your feature specifically for a sprint review so you can demo your code to people. 
+It can be finicky managing feature flags across multiple environments and is only exacerbated when you need to enable a feature for one user or for a one off i.e. a QA who needs to test or when you want demo a feature for review. 
 
-This often requires toggle the feature flag in an environment variable and re-running a build. This can take time depending on your CI or maybe you have to do a release to get the changes deployed and it means unwanted changes will have to be deployed too.
+Normally this would require toggling a feature flag in an environment variable and re-running a build. This can take time depending on your CI or maybe you have to do a release to get the changes deployed.
 
-With @feijoa/react you to don't have to worry about any of this and you can toggle features in your browser, without any code deploys! Simply override a feature flag with a simple query param, cookie or even local storage. They can even be overridden with env variables if you want certain builds to not have a feature.
+Now you to don't have to worry about any of this and you can toggle features in your browser, without any code deploys! Simply override a feature flag with a query param, cookie or local storage. They can even be overridden with env variables if you want certain builds to not have a feature.
 
 ## Install
 
