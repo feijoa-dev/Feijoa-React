@@ -6,14 +6,7 @@ const isNil = (val: any): boolean => val === undefined || val === null;
 const getBoolVal = (val?: string|boolean|null): boolean => {
 
   if( typeof val === "string" ) {
-    switch(val) {
-      case "true":
-        return true;
-      case "false":
-        return false;
-      default:
-        return false;
-    }
+    return val === "true";
   }
 
   return !!val;
