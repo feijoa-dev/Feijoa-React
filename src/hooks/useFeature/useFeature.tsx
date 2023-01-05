@@ -1,5 +1,4 @@
 import { useMemo } from "react"
-import fromEntries from "object.fromentries";
 import { FeatureProps } from "../../types/Feature.types";
 
 const isNil = (val: any): boolean => val === undefined || val === null;

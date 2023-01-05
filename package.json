@@ -71,8 +71,5 @@
     "feature toggle",
     "feature flag",
     "continuous deployment"
-  ],
-  "dependencies": {
-    "object.fromentries": "^2.0.5"
-  }
+  ]
 }
