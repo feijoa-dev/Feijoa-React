@@ -1,3 +1,13 @@
+## [2.2.8](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.7...v2.2.8) (2023-01-05)
+
+
+### Bug Fixes
+
+* Added another check for window object ([f1b6cfa](https://github.com/feijoa-dev/feijoa-react/commit/f1b6cfa1c871cae59ed3eb065fb5b09d5ca2e32b))
+* Added better checking for window object ([a32a5dd](https://github.com/feijoa-dev/feijoa-react/commit/a32a5dde35d57ffad211764690d3a1371e005ae8))
+* Added better checking for window object ([5de69d3](https://github.com/feijoa-dev/feijoa-react/commit/5de69d37909d6b518caf5aba8cd3282835966b3e))
+* Check for window object to exist so SSR works ([8517c03](https://github.com/feijoa-dev/feijoa-react/commit/8517c03b0ff685817a7b456f84e1118a9c3acd2a))
+
 ## [2.2.7](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.6...v2.2.7) (2022-10-27)
 
 
