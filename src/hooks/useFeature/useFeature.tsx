@@ -21,7 +21,7 @@ const useFeature = ({
 }: FeatureProps): boolean => {
   
   const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
-  const params = fromEntries(urlSearchParams?.entries());  
+  const params = urlSearchParams ? fromEntries(urlSearchParams.entries()) : {};  
 
   const cookies = useMemo(() => {
     if( !global.window ) {
