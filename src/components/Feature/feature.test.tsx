@@ -9,7 +9,7 @@ describe('Feature Component', () => {
     it('Should render feature when enabled value is true', () => {
 
       const { queryByText } = render(
-        <Feature enabled={true}>
+        <Feature name="my-feature" enabled={true}>
           <p>My Feature</p>
         </Feature>
       )
@@ -19,7 +19,7 @@ describe('Feature Component', () => {
     it('Should NOT render feature when enabled value is false', () => {
 
       const { queryByText } = render(
-        <Feature enabled={false}>
+        <Feature name="my-feature" enabled={false}>
           <p>My Feature</p>
         </Feature>
       )
@@ -29,7 +29,7 @@ describe('Feature Component', () => {
     it('Should render feature when environment variable value is true', () => {
 
       const { queryByText } = render(
-        <Feature envVar="REACT_APP_SHOW_FEATURE_1">
+        <Feature name="SHOW_FEATURE_1" enabled={false}>
           <p>My Feature</p>
         </Feature>
       )
@@ -39,7 +39,17 @@ describe('Feature Component', () => {
     it('Should render feature when environment without REACT_APP_ prefix variable value is true', () => {
 
       const { queryByText } = render(
-        <Feature envVar="OTHER_FEATURE_1">
+        <Feature name="OTHER_FEATURE_1" enabled={false}>
+          <p>My Feature</p>
+        </Feature>
+      )
+      expect(queryByText("My Feature")).toBeTruthy()
+    })
+
+    it('Should render feature when environment without GATSBY_ prefix variable value is true', () => {
+
+      const { queryByText } = render(
+        <Feature name="FEATURE_3" enabled={false}>
           <p>My Feature</p>
         </Feature>
       )
@@ -49,7 +59,7 @@ describe('Feature Component', () => {
     it('Should NOT render feature when environment variable value is false', () => {
 
       const { queryByText } = render(
-        <Feature envVar="REACT_APP_SHOW_FEATURE_2">
+        <Feature name="REACT_APP_SHOW_FEATURE_2" enabled={true}>
           <p>My Feature</p>
         </Feature>
       )
@@ -58,7 +68,7 @@ describe('Feature Component', () => {
 
     it('Should use default value when it can\'t find the env var', () => {
       const { queryByText } = render(
-        <Feature envVar="NON_EXISTANT_ENV_VAR" defaultValue={true}>
+        <Feature name="NON_EXISTANT_ENV_VAR" enabled={true}>
           <p>My Feature</p>
         </Feature>
       )
