@@ -110,6 +110,16 @@ This can be done either via a query string or via a setting a cookie
  https://example.com?MY_FEATURE=false
 ```
 
+### Local Storage
+
+```js
+  // enable
+  localStorage.setItem('localStorage_flag_enabled', 'true');
+
+  // disable
+  localStorage.setItem('localStorage_flag_enabled', 'false');
+```
+
 ### Cookie
 
 ```js
