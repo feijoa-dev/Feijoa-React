@@ -14,7 +14,11 @@ A comprehensive React feature flag library providing reusable components and hoo
 
 ## Problem
 
-As code bases grow larger, it can be unclear what code is part of a feature and if it should be enabled. Some feature flags are also unclear if they are part of some other config or just simply a conditional statement. Having a verbose feature flag component or hook helps distinguish them from the rest of your code.
+It can be finicky managing feature flags across many environments and is exacerbated when you need to enable a feature for one user i.e. a QA who needs to test. Or perhaps you want to enable your feature specifically for a sprint review so you can demo your code to people. 
+
+This often requires toggle the feature flag in an environment variable and re-running a build. This can take time depending on your CI or maybe you have to do a release to get the changes deployed and it means unwanted changes will have to be deployed too.
+
+With @feijoa/react you to don't have to worry about any of this and you can toggle features in your browser, without any code deploys! Simply override a feature flag with a simple query param, cookie or even local storage. They can even be overridden with env variables if you want certain builds to not have a feature.
 
 ## Install
 
