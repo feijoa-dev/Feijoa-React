@@ -7,7 +7,7 @@ import useFeature from "../../hooks/useFeature";
 
 const Feature: FC<FeatureProps> = ({ 
   name,
-  enabled,
+  enabled = false,
   children,
 }) => {
 

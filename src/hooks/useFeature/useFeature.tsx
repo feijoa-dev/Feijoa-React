@@ -21,7 +21,7 @@ const getBoolVal = (val?: string|boolean|null): boolean => {
 
 const useFeature = ({ 
   name,
-  enabled
+  enabled = false
 }: FeatureProps): boolean => {
 
   const cookies = useMemo(() => {
