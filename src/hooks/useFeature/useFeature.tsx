@@ -20,8 +20,8 @@ const useFeature = ({
   defaultValue = false
 }: FeatureProps): boolean => {
 
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = fromEntries(urlSearchParams.entries());  
+  const urlSearchParams = window && new URLSearchParams(window.location.search);
+  const params = fromEntries(urlSearchParams?.entries());  
 
   const cookies = useMemo(() => {
     if( !window ) {
