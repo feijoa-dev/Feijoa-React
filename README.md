@@ -113,21 +113,21 @@ This can be done either via a query string or via a setting a cookie
 ### Local Storage
 
 ```js
-  // enable
-  localStorage.setItem('localStorage_flag_enabled', 'true');
+// enable
+localStorage.setItem('localStorage_flag_enabled', 'true');
 
-  // disable
-  localStorage.setItem('localStorage_flag_enabled', 'false');
+// disable
+localStorage.setItem('localStorage_flag_enabled', 'false');
 ```
 
 ### Cookie
 
 ```js
-  // enable
-  document.cookie = 'MY_FEATURE=true;'
+// enable
+document.cookie = 'MY_FEATURE=true;'
 
-  // disable
-  document.cookie = 'MY_FEATURE=false;'
+// disable
+document.cookie = 'MY_FEATURE=false;'
 ```
 
 Environment Variables
