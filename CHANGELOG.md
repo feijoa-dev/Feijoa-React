@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.8...v3.0.0) (2023-01-05)
+
+
+* Merge pull request #23 from feijoa-dev/replace-useEffect ([ba89d04](https://github.com/feijoa-dev/feijoa-react/commit/ba89d044009fa0580ec44d4a7f9d8b208cc5efb6)), closes [#23](https://github.com/feijoa-dev/feijoa-react/issues/23)
+
+
+### BREAKING CHANGES
+
+* Simplified props and logic around should render feat…
+
 ## [2.2.8](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.7...v2.2.8) (2023-01-05)
 
 
