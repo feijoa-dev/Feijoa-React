@@ -1,27 +1,29 @@
-import { useEffect, useMemo, useState } from "react"
+import { useMemo } from "react"
 import fromEntries from "object.fromentries";
 import { FeatureProps } from "../../types/Feature.types";
 
-const getBoolVal = (val: string): boolean => {
-  switch(val) {
-    case "true":
-      return true;
-    case "false":
-      return false;
-    default:
-      return false;
+const isNil = (val: any): boolean => val === undefined || val === null;
+
+const getBoolVal = (val?: string|boolean|null): boolean => {
+
+  if( typeof val === "string" ) {
+    switch(val) {
+      case "true":
+        return true;
+      case "false":
+        return false;
+      default:
+        return false;
+    }
   }
+
+  return !!val;
 }
 
 const useFeature = ({ 
   name,
-  enabled,
-  envVar,
-  defaultValue = false
+  enabled
 }: FeatureProps): boolean => {
-  
-  const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
-  const params = urlSearchParams ? fromEntries(urlSearchParams.entries()) : {};  
 
   const cookies = useMemo(() => {
     if( !global.window ) {
@@ -36,57 +38,30 @@ const useFeature = ({
       ), {});
   }, [])
 
-  const [featureEnabled, setFeatureEnabled] = useState<boolean>(() => {
+  const featureEnabled = useMemo((): boolean => {
 
-    if( envVar !== undefined ) {
-
-      const environmentVariable = process.env?.[envVar] || process.env?.[`REACT_APP_${envVar}`]
-      
-      if ( environmentVariable ) {
-        return environmentVariable === "true";
-      } 
-
-      console.warn(`No environment variable found in process.env with value: ${envVar}`);
+    const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
+    const myParam = urlSearchParams ? urlSearchParams.get(name) : null;
+    
+    const envVar = 
+      process.env?.[name] ||
+      process.env?.[`REACT_APP_${name}`] || 
+      process.env?.[`GATSBY_${name}`]
+    
+    if( !isNil(cookies[name]) ) {
+      return getBoolVal(cookies[name])
     }
 
-    if( enabled !== undefined ) {
-      return enabled;
+    if( !isNil(myParam) ) {
+      return getBoolVal(myParam)
     }
     
-    if( defaultValue !== undefined ) {
-      return defaultValue;
+    if( !isNil(envVar) ) {
+      return getBoolVal(envVar)
     }
 
-    return false;
-  });
-
-  useEffect(() => {
-    
-    if( envVar && params?.[envVar] ) {
-      setFeatureEnabled(getBoolVal(params[envVar]));  
-    }
-
-    if( name && params?.[name] ) {
-      setFeatureEnabled(getBoolVal(params[name]));  
-    }
-
-    if( envVar && params?.[envVar?.replace("REACT_APP_", "")] ) {
-      setFeatureEnabled(getBoolVal(params[envVar]));  
-    }
-
-    if( envVar && cookies?.[envVar] ) {
-      setFeatureEnabled(getBoolVal(cookies[envVar]));  
-    }
-
-    if( name && cookies?.[name] ) {
-      setFeatureEnabled(getBoolVal(cookies[name]));  
-    }
-
-    if( envVar && cookies?.[envVar?.replace("REACT_APP_", "")] ) {
-      setFeatureEnabled(getBoolVal(cookies[envVar]));  
-    }
-
-  }, [params, cookies, envVar, name])
+    return !!enabled
+  }, [name, enabled, cookies])
 
   return featureEnabled;
 }

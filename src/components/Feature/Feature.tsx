@@ -8,16 +8,12 @@ import useFeature from "../../hooks/useFeature";
 const Feature: FC<FeatureProps> = ({ 
   name,
   enabled,
-  envVar,
   children,
-  defaultValue = false
 }) => {
 
   const flagEnabled = useFeature({
     name,
-    enabled,
-    envVar,
-    defaultValue
+    enabled
   });
 
   return (
