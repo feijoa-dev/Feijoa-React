@@ -24,6 +24,9 @@ const useFeature = ({
   const params = fromEntries(urlSearchParams.entries());  
 
   const cookies = useMemo(() => {
+    if( !window ) {
+      return {}
+    }
     return document.cookie.split(";")
       .map(cookie => cookie.replace(" ", ""))
       .reduce((acc, cookie) => (
