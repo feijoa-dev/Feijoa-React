@@ -19,11 +19,14 @@ const useFeature = ({
   envVar,
   defaultValue = false
 }: FeatureProps): boolean => {
-
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = fromEntries(urlSearchParams.entries());  
+  
+  const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
+  const params = urlSearchParams ? fromEntries(urlSearchParams.entries()) : {};  
 
   const cookies = useMemo(() => {
+    if( !global.window ) {
+      return {}
+    }
     return document.cookie.split(";")
       .map(cookie => cookie.replace(" ", ""))
       .reduce((acc, cookie) => (
