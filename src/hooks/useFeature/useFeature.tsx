@@ -48,7 +48,7 @@ const useFeature = ({
       process.env?.[name] ||
       process.env?.[`REACT_APP_${name}`] || 
       process.env?.[`GATSBY_${name}`]
-    
+
     if( !isNil(cookies[name]) ) {
       return getBoolVal(cookies[name])
     }
