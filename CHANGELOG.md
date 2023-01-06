@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/feijoa-dev/feijoa-react/compare/v3.1.0...v3.1.1) (2023-01-06)
+
+
+### Bug Fixes
+
+* Added conditional check for window object before accessing local storage so SSR apps don't break ([3cab22d](https://github.com/feijoa-dev/feijoa-react/commit/3cab22d7ffc1edeb451b532b3bcd8fc2ac612d06))
+
 # [3.1.0](https://github.com/feijoa-dev/feijoa-react/compare/v3.0.0...v3.1.0) (2023-01-06)
 
 
