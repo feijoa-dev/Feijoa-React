@@ -1,3 +1,11 @@
+# [3.1.0](https://github.com/feijoa-dev/feijoa-react/compare/v3.0.0...v3.1.0) (2023-01-06)
+
+
+### Features
+
+* Added Local storage feature flag override ([2ac2864](https://github.com/feijoa-dev/feijoa-react/commit/2ac2864367d26a3812d4e87d102fb3009faf5f91))
+* Added Local storage feature flag override ([1b1f8da](https://github.com/feijoa-dev/feijoa-react/commit/1b1f8da686289090696be0949375257241941715))
+
 # [3.0.0](https://github.com/feijoa-dev/feijoa-react/compare/v2.2.8...v3.0.0) (2023-01-05)
 
 
