@@ -35,7 +35,7 @@ const useFeature = ({
     const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
     const myParam = urlSearchParams ? urlSearchParams.get(name) : null;
 
-    const localStorageValue = global.window.localStorage.getItem(name);
+    const localStorageValue = global?.window?.localStorage?.getItem(name);
     
     const envVar = 
       process.env?.[name] ||
