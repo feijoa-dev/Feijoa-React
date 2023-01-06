@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/feijoa-dev/feijoa-react/compare/v3.1.1...v3.2.0) (2023-01-06)
+
+
+### Features
+
+* Added check for Next js env vars ([3a49837](https://github.com/feijoa-dev/feijoa-react/commit/3a49837ee9b52746a5caf735e9b8ffa7231a4fbd))
+
 ## [3.1.1](https://github.com/feijoa-dev/feijoa-react/compare/v3.1.0...v3.1.1) (2023-01-06)
 
 
