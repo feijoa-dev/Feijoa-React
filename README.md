@@ -14,7 +14,11 @@ A comprehensive React feature flag library providing reusable components and hoo
 
 ## Problem
 
-As code bases grow larger, it can be unclear what code is part of a feature and if it should be enabled. Some feature flags are also unclear if they are part of some other config or just simply a conditional statement. Having a verbose feature flag component or hook helps distinguish them from the rest of your code.
+It can be finicky managing feature flags across multiple environments and is only exacerbated when you need to enable a feature for one user or for a one off i.e. a QA who needs to test or when you want demo a feature for review. 
+
+Normally this would require toggling a feature flag in an environment variable and re-running a build. This can take time depending on your CI or maybe you have to do a release to get the changes deployed.
+
+Now you to don't have to worry about any of this and you can toggle features in your browser, without any code deploys! Simply override a feature flag with a query param, cookie or local storage. They can even be overridden with env variables if you want certain builds to not have a feature.
 
 ## Install
 
@@ -106,14 +110,24 @@ This can be done either via a query string or via a setting a cookie
  https://example.com?MY_FEATURE=false
 ```
 
+### Local Storage
+
+```js
+// enable
+localStorage.setItem('localStorage_flag_enabled', 'true');
+
+// disable
+localStorage.setItem('localStorage_flag_enabled', 'false');
+```
+
 ### Cookie
 
 ```js
-  // enable
-  document.cookie = 'MY_FEATURE=true;'
+// enable
+document.cookie = 'MY_FEATURE=true;'
 
-  // disable
-  document.cookie = 'MY_FEATURE=false;'
+// disable
+document.cookie = 'MY_FEATURE=false;'
 ```
 
 Environment Variables

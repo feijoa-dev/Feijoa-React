@@ -6,6 +6,11 @@ import Feature from '.'
 describe('Feature Component', () => {
 
   describe("Unmanaged flags", () => {
+
+    beforeEach(() => {
+      localStorage.clear();
+    });
+
     it('Should render feature when enabled value is true', () => {
 
       const { queryByText } = render(
@@ -20,6 +25,30 @@ describe('Feature Component', () => {
 
       const { queryByText } = render(
         <Feature name="my-feature" enabled={false}>
+          <p>My Feature</p>
+        </Feature>
+      )
+      expect(queryByText("My Feature")).toBeFalsy()
+    })
+
+    it('Should render feature when localStorage override is true', () => {
+
+      localStorage.setItem('localStorage_flag_enabled', "true");
+      
+      const { queryByText } = render(
+        <Feature name="localStorage_flag_enabled" enabled={false}>
+          <p>My Feature</p>
+        </Feature>
+      )
+      expect(queryByText("My Feature")).toBeTruthy()
+    })
+
+    it('Should NOT render feature when localStorage override is false', () => {
+
+      localStorage.setItem('localStorage_flag_enabled', "false");
+      
+      const { queryByText } = render(
+        <Feature name="localStorage_flag_enabled" enabled={true}>
           <p>My Feature</p>
         </Feature>
       )

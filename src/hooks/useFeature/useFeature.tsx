@@ -6,14 +6,7 @@ const isNil = (val: any): boolean => val === undefined || val === null;
 const getBoolVal = (val?: string|boolean|null): boolean => {
 
   if( typeof val === "string" ) {
-    switch(val) {
-      case "true":
-        return true;
-      case "false":
-        return false;
-      default:
-        return false;
-    }
+    return val === "true";
   }
 
   return !!val;
@@ -41,12 +34,14 @@ const useFeature = ({
 
     const urlSearchParams = global.window && new URLSearchParams(global.window.location.search);
     const myParam = urlSearchParams ? urlSearchParams.get(name) : null;
+
+    const localStorageValue = global.window.localStorage.getItem(name);
     
     const envVar = 
       process.env?.[name] ||
       process.env?.[`REACT_APP_${name}`] || 
       process.env?.[`GATSBY_${name}`]
-    
+
     if( !isNil(cookies[name]) ) {
       return getBoolVal(cookies[name])
     }
@@ -57,6 +52,10 @@ const useFeature = ({
     
     if( !isNil(envVar) ) {
       return getBoolVal(envVar)
+    }
+
+    if( !isNil(localStorageValue) ) {
+      return getBoolVal(localStorageValue)
     }
 
     return !!enabled
