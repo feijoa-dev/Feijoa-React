@@ -40,7 +40,8 @@ const useFeature = ({
     const envVar = 
       process.env?.[name] ||
       process.env?.[`REACT_APP_${name}`] || 
-      process.env?.[`GATSBY_${name}`]
+      process.env?.[`GATSBY_${name}`] ||
+      process.env?.[`NEXT_PUBLIC_${name}`]
 
     if( !isNil(cookies[name]) ) {
       return getBoolVal(cookies[name])
