@@ -1,5 +1,8 @@
 # @feijoa/react
 
+> **Warning**
+> This package has been moved to [use-feature](https://www.npmjs.com/package/use-feature)
+
 [![NPM](https://img.shields.io/npm/v/@feijoa/react.svg)](https://www.npmjs.com/package/@feijoa/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 - [What is Feijoa](#what-is-feijoa)
